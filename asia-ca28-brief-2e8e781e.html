@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>关于加拿大28 · 一种温和的出发点</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #f7f4ef;  /* 米白基调 */
+            font-family: 'Georgia', 'Times New Roman', 'Noto Serif SC', serif;
+            color: #3b3a36;
+            line-height: 1.7;
+            padding: 2rem 1.2rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .page {
+            max-width: 760px;
+            width: 100%;
+            background: rgba(255, 251, 245, 0.7);
+            backdrop-filter: blur(1px);
+            border-radius: 28px;
+            box-shadow: 0 10px 28px rgba(0,0,0,0.03), 0 2px 8px rgba(160, 140, 120, 0.08);
+            padding: 2.6rem 2rem;
+            margin: 1.8rem auto;
+            border: 1px solid #ebe5db;
+        }
+
+        /* 开场氛围 */
+        .opening {
+            font-size: 1.15rem;
+            letter-spacing: 0.03em;
+            padding-bottom: 0.8rem;
+            border-bottom: 2px dotted #d8cfc0;
+            margin-bottom: 2rem;
+        }
+
+        .opening p:first-child {
+            font-style: italic;
+            color: #6f6558;
+            font-size: 1.3rem;
+            margin-bottom: 0.9rem;
+        }
+
+        .story-embrace {
+            background: #f2ede4;
+            padding: 1.4rem 1.8rem;
+            border-radius: 40px 12px 40px 12px;
+            margin: 0 0 2.2rem 0;
+            box-shadow: inset 0 1px 4px rgba(180, 160, 140, 0.1);
+        }
+
+        .story-embrace p {
+            margin-bottom: 0.9rem;
+        }
+
+        .story-embrace p:last-child {
+            margin-bottom: 0;
+        }
+
+        /* 承接段落 —— 站点说明 */
+        .site-intro {
+            background: #ffffffd4;
+            padding: 1.6rem 2rem;
+            border-left: 6px solid #b8a48c;
+            border-radius: 0 16px 16px 0;
+            margin: 2rem 0 2.4rem 0;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.02);
+        }
+
+        .site-intro strong {
+            color: #5f5140;
+            font-weight: 600;
+        }
+
+        /* 特点列表——故事化的三个侧面 */
+        .feature-list {
+            list-style: none;
+            margin: 2.2rem 0 2.6rem 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 1.2rem;
+        }
+
+        .feature-item {
+            background: #fcf9f5;
+            border-radius: 24px;
+            padding: 1rem 1.6rem 1rem 2.2rem;
+            border: 1px solid #e4dbcf;
+            transition: background 0.2s ease;
+            position: relative;
+        }
+
+        .feature-item:hover {
+            background: #f4ede3;
+            border-color: #cbbcaa;
+        }
+
+        .feature-item::before {
+            content: "· ·";
+            position: absolute;
+            left: 0.6rem;
+            top: 1rem;
+            font-size: 1.2rem;
+            letter-spacing: 0.2rem;
+            color: #a9927b;
+            opacity: 0.5;
+        }
+
+        .feature-title {
+            display: block;
+            font-weight: 600;
+            color: #4f4437;
+            margin-bottom: 0.2rem;
+            font-size: 1.05rem;
+        }
+
+        .feature-desc {
+            color: #5e5548;
+            font-size: 0.95rem;
+        }
+
+        /* 引语 / 温和提示框 */
+        .gentle-note {
+            background: #e9e1d5;
+            border-radius: 30px 8px 30px 8px;
+            padding: 1.6rem 2rem;
+            margin: 2.4rem 0 1.6rem 0;
+            font-style: normal;
+            border: 1px solid #d6cbbe;
+            box-shadow: 0 2px 6px rgba(120, 100, 80, 0.04);
+            position: relative;
+        }
+
+        .gentle-note::before {
+            content: "☕";
+            display: block;
+            font-size: 1.6rem;
+            margin-bottom: 0.3rem;
+            opacity: 0.65;
+        }
+
+        /* FAQ 摘要 —— 轻量提问 */
+        .faq-mini {
+            display: flex;
+            flex-direction: column;
+            gap: 0.4rem;
+            margin: 2.2rem 0 1.2rem 0;
+        }
+
+        .faq-mini details {
+            background: #fdfaf6;
+            border-radius: 40px;
+            padding: 0.4rem 1.6rem 0.4rem 2rem;
+            border-bottom: 1px solid #e4d9cc;
+            transition: all 0.1s;
+        }
+
+        .faq-mini details[open] {
+            background: #f7f0e8;
+            border-radius: 28px;
+            padding-bottom: 0.8rem;
+        }
+
+        .faq-mini summary {
+            font-weight: 500;
+            cursor: pointer;
+            color: #4d4035;
+            padding: 0.7rem 0;
+            list-style: none;
+            display: flex;
+            align-items: center;
+        }
+
+        .faq-mini summary::before {
+            content: "↪";
+            margin-right: 0.6rem;
+            color: #a18b75;
+            font-size: 0.9rem;
+        }
+
+        .faq-mini details p {
+            margin: 0.3rem 0 0.8rem 0.4rem;
+            padding-left: 0.6rem;
+            border-left: 2px solid #cbb9a6;
+            color: #534b40;
+            font-size: 0.95rem;
+        }
+
+        /* 链接风格 */
+        a {
+            color: #6f5f4a;
+            text-decoration: underline wavy #d1bfab 1px;
+            text-underline-offset: 4px;
+            transition: color 0.2s, background 0.1s;
+            padding: 0 0.1rem;
+        }
+
+        a:hover {
+            color: #2f2a23;
+            background: #efe5d8;
+            border-radius: 4px;
+            text-decoration: underline wavy #9f8b75 2px;
+        }
+
+        /* 结尾语境 */
+        .closing-remark {
+            margin-top: 2.8rem;
+            padding-top: 1.6rem;
+            border-top: 1px solid #dbd1c2;
+            font-size: 0.98rem;
+            color: #5c5347;
+            text-align: right;
+            font-style: italic;
+        }
+
+        .closing-remark span {
+            background: #e3d9cd;
+            padding: 0.1rem 0.6rem;
+            border-radius: 30px;
+            font-style: normal;
+            font-size: 0.85rem;
+            color: #4a3e33;
+            margin-left: 0.5rem;
+        }
+
+        @media (max-width: 500px) {
+            .page {
+                padding: 1.8rem 1.2rem;
+                border-radius: 20px;
+            }
+            .site-intro {
+                padding: 1.2rem 1.2rem;
+            }
+            .story-embrace {
+                padding: 1rem 1.2rem;
+            }
+            .gentle-note {
+                padding: 1.2rem 1.4rem;
+            }
+            .feature-item {
+                padding: 0.8rem 1rem 0.8rem 1.8rem;
+            }
+            .opening p:first-child {
+                font-size: 1.1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="page">
+
+    <!-- 开场短句 -->
+    <div class="opening">
+        <p>有时候，一个数字不只是数字。</p>
+        <p>它承载着片刻的期待、一群人的共同节奏，以及一份平静的陪伴。二十八，不过是一个常见的数字，但在某些语境里，它凝聚成一种轻盈的仪式感。</p>
+    </div>
+
+    <!-- 承接段落：站点介绍与可信说明 -->
+    <div class="story-embrace">
+        <p>这里想向你介绍一个在线的角落——它并非什么喧嚣的广场，更像一间光线柔和的阅读室。在这个站点里，人们关注的是「加拿大28」所延伸出的资讯与氛围。</p>
+        <p>站点本身保持简洁与克制，没有冗余的弹窗或夸大的标语。内容围绕规则、趋势记录与社区交流而展开，所有信息都以清晰、平实的方式呈现。如果你对这个话题已有了解，或许会发现它提供了一种不浮躁的参考视角。</p>
+    </div>
+
+    <!-- 特点列表：三个维度，叙事化 -->
+    <ul class="feature-list">
+        <li class="feature-item">
+            <span class="feature-title">信息呈现 · 克制而清晰</span>
+            <span class="feature-desc">页面采用低对比度的排版与柔和分区，让阅览体验更接近翻阅一本笔记。没有刺眼的色块，只有恰好的留白。</span>
+        </li>
+        <li class="feature-item">
+            <span class="feature-title">社区氛围 · 对话大于通知</span>
+            <span class="feature-desc">讨论区里更多是经验分享与安静的数据交换，而非轰炸式的提醒。成员之间习惯用平和的语气讨论趋势与节点。</span>
+        </li>
+        <li class="feature-item">
+            <span class="feature-title">持续沉淀 · 不追求瞬时热点</span>
+            <span class="feature-desc">内容更新有稳定的节奏，不追逐短暂流量。每一篇记录或分析都像一段安静的笔记，值得回头翻阅。</span>
+        </li>
+    </ul>
+
+    <!-- 引用块 / 提示框 温和说明 -->
+    <div class="gentle-note">
+        如果你对这类主题抱持好奇，不妨从了解<a href="https://asia-ca28.com">加拿大28</a>的基础概念开始。站内没有复杂的门槛，也没有催促你行动的设计，一切都按照你自己的节奏来就好。
+    </div>
+
+    <!-- FAQ 摘要 —— 轻量，不喧宾夺主 -->
+    <div class="faq-mini">
+        <details>
+            <summary>这个站点适合什么样的人？</summary>
+            <p>适合喜欢安静观察、对数字趋势有一点兴趣，且不愿意被过度营销打扰的人。无论你是纯粹旁观还是偶尔参与，都能找到属于自己的阅读角度。</p>
+        </details>
+        <details>
+            <summary>内容来源和可信度如何？</summary>
+            <p>站点内容多由社区成员与爱好者共同整理，公开数据均标注来源。没有隐藏的推销链条，每一条记录都经得起复查与对照。</p>
+        </details>
+        <details>
+            <summary>需要注册或付费吗？</summary>
+            <p>不需要。浏览绝大多数内容无需注册。部分互动功能可选加入，但完全免费，也没有隐性的订阅陷阱。</p>
+        </details>
+    </div>
+
+    <!-- 温和结尾 -->
+    <div class="closing-remark">
+        — 一次安静的浏览，或许就是最好的开端。
+        <span># 加拿大28 · 温和叙事</span>
+    </div>
+</div>
+</body>
+</html>
